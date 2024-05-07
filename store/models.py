@@ -1,5 +1,7 @@
 from django.db import models
 
+from category.models import Category
+
 # Create your models here.
 class Product(models.Model):
     product_name = models.CharField(max_length=200, unique=True)
@@ -9,3 +11,4 @@ class Product(models.Model):
     images = models.ImageField(upload_to='photos/products')
     stock = models.IntegerField()
     is_available = models.BooleanField(default=True)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE)
