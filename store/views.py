@@ -23,4 +23,4 @@ def store(request, category_slug=None):
 
 
 def product_detail(request):
-    pass
+    return render(request, 'store/product_detail.html')
