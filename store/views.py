@@ -20,3 +20,7 @@ def store(request, category_slug=None):
         'product_count': product_count,
     }
     return render(request, 'store/store.html', context)
+
+
+def product_detail(request):
+    pass
