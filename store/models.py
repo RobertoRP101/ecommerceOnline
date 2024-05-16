@@ -1,5 +1,6 @@
 from django.db import models
 from category.models import Category
+from django.urls import reverse
 
 # Create your models here.
 class Product(models.Model):
