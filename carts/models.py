@@ -3,4 +3,4 @@ from django.db import models
 # Create your models here.
 
 class Cart(models.Models):
-    pass
+    cart_id = models.CharField(max_length=250, blank=True)
