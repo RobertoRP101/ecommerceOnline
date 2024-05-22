@@ -14,8 +14,11 @@ def add_cart(request, product_id):
     product = Product.objects.get(id=product_id)
     try:
         cart = Cart.objects.get(id_cart=cart_id(request))
-    except:
-        pass
+    except Cart.DoesNotExist:
+        cart = Cart.objects.create(
+            cart_id = cart_id(request)
+        )
+    cart.save()
 
 def cart(request):
     return render(request, 'store/cart.html')
