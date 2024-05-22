@@ -1,6 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from store.models import Product
-from .models import Cart
+from .models import Cart, CartItem
 # Create your views here.
 
 def cart_id(request):
@@ -19,6 +19,19 @@ def add_cart(request, product_id):
             cart_id = cart_id(request)
         )
     cart.save()
+    try:
+        cart_item = CartItem.objects.get(product=product, cart=cart)
+        cart_item.quantity += 1
+        cart_item.save()
+    except CartItem.DoesNotExist:
+        cart_item = CartItem.objects.create(
+            product = product,
+            quantity = 1,
+            cart = cart,
+        )
+        cart_item.save()
+    return redirect('cart')
+    
 
 def cart(request):
     return render(request, 'store/cart.html')
