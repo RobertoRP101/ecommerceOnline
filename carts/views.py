@@ -50,4 +50,4 @@ def cart(request, total=0, quantity=0, cart_items=None):
         'cart_items': cart_items,   
     }
     
-    return render(request, 'store/cart.html')
+    return render(request, 'store/cart.html', context)
