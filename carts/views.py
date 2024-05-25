@@ -33,6 +33,10 @@ def add_cart(request, product_id):
         cart_item.save()
     return redirect('cart')
     
+    
+def remove_cart(request, product_id):
+    pass
+
 
 def cart(request, total=0, quantity=0, cart_items=None):
     try:
