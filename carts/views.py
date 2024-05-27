@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from store.models import Product
 from .models import Cart, CartItem
 
@@ -36,7 +36,7 @@ def add_cart(request, product_id):
     
 def remove_cart(request, product_id):
     cart = Cart.objects.get(cart_id=cart_id(request))
-    product = get_objects_or_404(Product, id=product_id)
+    product = get_object_or_404(Product, id=product_id)
 
 
 def cart(request, total=0, quantity=0, cart_items=None):
