@@ -7,7 +7,13 @@
     <div class="container">
     
     <!-- ============================ COMPONENT 1 ================================= -->
-    
+    {% if not cart_items %}
+    <h2>Your shopping cart is Empy</h2>
+    <br>
+    <div class="text-center">
+        <a href="{% url 'store' %}" class="btn btn-primary">Continue Shopping</a>
+    </div>
+    {% else %}
     <div class="row">
         <aside class="col-lg-9">
     <div class="card">
@@ -54,7 +60,7 @@
             </div> <!-- price-wrap .// -->
         </td>
         <td class="text-right"> 
-        <a href="" class="btn btn-danger"> Remove</a>
+        <a href="{% url 'remove_cart_item' cart_item.product.id %}" class="btn btn-danger"> Remove</a>
         </td>
     </tr>
     {% endfor %}
@@ -92,6 +98,7 @@
     
     
     </div> <!-- row.// -->
+    {% endif %}
     <!-- ============================ COMPONENT 1 END .// ================================= -->
     
     </div> <!-- container .//  -->
