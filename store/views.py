@@ -16,6 +16,7 @@ def store(request, category_slug=None):
         product_count = products.count()
     else:  
         products = Product.objects.all().filter(is_available=True)
+        paginator = Paginator(products, 6)
         product_count = products.count()
     context = {
         'products': products,
