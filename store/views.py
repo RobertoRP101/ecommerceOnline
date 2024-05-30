@@ -3,7 +3,7 @@ from carts.models import CartItem
 from carts.views import _cart_id
 from category.models import Category
 from .models import Product
-from django.core.paginator import EmptyPage, PageNotAnInteger
+from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 # Create your views here.
 
 def store(request, category_slug=None):
