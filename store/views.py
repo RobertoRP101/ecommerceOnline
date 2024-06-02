@@ -4,6 +4,7 @@ from carts.views import _cart_id
 from category.models import Category
 from .models import Product
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
+from django.http import HttpResponse
 # Create your views here.
 
 def store(request, category_slug=None):
@@ -44,4 +45,4 @@ def product_detail(request, category_slug, product_slug):
 
 
 def search(request):
-    pass
+    return HttpResponse('Search page')
