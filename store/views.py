@@ -45,4 +45,4 @@ def product_detail(request, category_slug, product_slug):
 
 
 def search(request):
-    return HttpResponse('Search page')
+    return render(request, 'store/store.html')
