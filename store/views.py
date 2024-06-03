@@ -47,4 +47,6 @@ def product_detail(request, category_slug, product_slug):
 def search(request):
     if 'keyword' in request.GET:
         keyword = request.GET['keyword']
+        if keyword:
+            products = Product.objects.order_by('-created_date').filter(description__icontains=keyword)
     return render(request, 'store/store.html')
