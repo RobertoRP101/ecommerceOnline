@@ -37,7 +37,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'task', # Verify if the settings were set up correctly -- python manage.py makemigrations tasks
     'category',
     'accounts',
     'store',
