@@ -20,6 +20,10 @@ class Product(models.Model):
     
     def __str__(self) -> str:
         return self.product_name
+   
+class VariationManager(models.Manager):
+    def color(self):
+        return super(VariationManager, self).filter(variation_category='color', is_active=True)
     
 variation_category_choice = (
     ('color', 'color'),
