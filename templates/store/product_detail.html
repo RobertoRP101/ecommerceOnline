@@ -47,9 +47,10 @@
                 <div class="item-option-select">
                   <h6>Select Size</h6>
                   <select name="size" class="form-control">
-                    <option value="small">Small</option>
-                    <option value="medium">Medium</option>
-                    <option value="large">Large</option>
+                    <option value="" disabled selected>Choose size</option>
+                    {% for i in single_product.variation_set.size %}
+                    <option value="{{ i.variation_value }}">{{ i.variation_value }}</option>
+                    {% endfor %}
                   </select>
                 </div>
               </div> 
