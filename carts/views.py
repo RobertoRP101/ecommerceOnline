@@ -17,6 +17,11 @@ def add_cart(request, product_id):
             key = item
             value = request.POST[key]
             print(key, value)
+            
+            try:
+                variation = Variation.objects.get(variation_category__iexact=key, variation_value__iexact=value)
+            except:
+                pass
     
     product = Product.objects.get(id=product_id)
     try:
