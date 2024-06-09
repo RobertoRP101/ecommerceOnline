@@ -3,8 +3,11 @@ from .models import Cart, CartItem
 
 # Register your models here.
 
-class CartItemAdmin(admin.ModelAdmin):
-    list_display = ('product', 'quantity', 'cart')
+class CartAdmin(admin.ModelAdmin):
+    list_display = ('cart_id', 'date_added')
 
-admin.site.register(Cart)
+# class CartItemAdmin(admin.ModelAdmin):
+#     list_display = ('product', 'quantity', 'cart')
+
+admin.site.register(Cart, CartAdmin)
 admin.site.register(CartItem)
