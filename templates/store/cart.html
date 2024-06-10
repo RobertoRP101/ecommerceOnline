@@ -39,7 +39,7 @@
                         {% if cart_item.variations.all %}
                         {% for item in cart_items.variations.all %}
                         {{ item.variation_category | capfirst }}  :  {{item.variation_value | capfirst }} <br>
-                        {% enfor %}
+                        {% endfor %}
                         {% endif %}
                     </p>
                 </figcaption>
