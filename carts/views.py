@@ -1,3 +1,4 @@
+from django.http import HttpResponse
 from django.shortcuts import render, redirect, get_object_or_404
 from django.core.exceptions import ObjectDoesNotExist
 from store.models import Product
@@ -45,9 +46,12 @@ def add_cart(request, product_id):
         for item in cart_item:
             existing_variation = item.variations.all()
             ex_var_list.append(existing_variation)
-            
-            
         
+        if product_variation in ex_var_list:
+            return HttpResponse('true')
+        else:
+            return HttpResponse('false')
+                
         
         if len(product_variation) > 0:
             cart_item.variations.clear()
