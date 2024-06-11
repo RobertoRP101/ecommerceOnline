@@ -35,7 +35,8 @@ def add_cart(request, product_id):
             cart_id = _cart_id(request)
         )
     cart.save()
-    try:
+    is_cart_item_exists = CartItem.objects.filter(product=product, cart=cart).exists()
+    if is_cart_item_exists:
         cart_item = CartItem.objects.create(product=product, quantity = 1, cart=cart)
         if len(product_variation) > 0:
             cart_item.variations.clear()
@@ -43,7 +44,7 @@ def add_cart(request, product_id):
                 cart_item.variations.add(item)
         # cart_item.quantity += 1
         cart_item.save()
-    except CartItem.DoesNotExist:
+    else:
         cart_item = CartItem.objects.create(
             product = product,
             quantity = 1,
