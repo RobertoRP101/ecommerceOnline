@@ -60,7 +60,7 @@ def add_cart(request, product_id):
                 item.variations.clear()
                 for item in product_variation:
                     cart_item.variations.add(*product_variation)
-            cart_item.save()
+            item.save()
     else:
         cart_item = CartItem.objects.create(
             product = product,
@@ -69,8 +69,7 @@ def add_cart(request, product_id):
         )
         if len(product_variation) > 0:
             cart_item.variations.clear()
-            for item in product_variation:
-                cart_item.variations.add(item)
+            cart_item.variations.add(*product_variation)
         cart_item.save()
     return redirect('cart')
     
