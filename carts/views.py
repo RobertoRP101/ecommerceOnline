@@ -54,16 +54,13 @@ def add_cart(request, product_id):
             item = CartItem.objects.get(product=product, id=item_id)
             item.quantity += 1
             item.save()
-        else:
-            return HttpResponse('false')
-                
-        
-        if len(product_variation) > 0:
-            cart_item.variations.clear()
-            for item in product_variation:
-                cart_item.variations.add(item)
-        # cart_item.quantity += 1
-        cart_item.save()
+        else:        
+            if len(product_variation) > 0:
+                cart_item.variations.clear()
+                for item in product_variation:
+                    cart_item.variations.add(item)
+            # cart_item.quantity += 1
+            cart_item.save()
     else:
         cart_item = CartItem.objects.create(
             product = product,
