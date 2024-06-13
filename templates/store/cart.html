@@ -58,8 +58,8 @@
                                         {% csrf_token %}
                                         {% for item in cart_item.variations.all %}
                                         <input type="hidden" name="{{item.variation_category | lower}}" value="{{item.variation_value | capfirst}}">
-                                        <button class="btn btn-light" type="submit"1 id="button-minus"> <i class="fa fa-plus"></i> </button>
                                         {% endfor %}
+                                        <button class="btn btn-light" type="submit"1 id="button-minus"> <i class="fa fa-plus"></i> </button>
                                     </form>
                                 </div>
                             </div> <!-- input-group.// -->
