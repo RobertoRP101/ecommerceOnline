@@ -57,7 +57,7 @@
                                     <form action="{% url 'add_cart' cart_item.product.id %}" method="POST">
                                         {% csrf_token %}
                                         {% for item in cart_item.variations.all %}
-                                        <input type="hidden" name="{{item.variation_category}}">
+                                        <input type="hidden" name="{{item.variation_category | lower}}">
                                         <button class="btn btn-light" type="submit"1 id="button-minus"> <i class="fa fa-plus"></i> </button>
                                         {% endfor %}
                                     </form>
