@@ -6,7 +6,7 @@ def register(request):
     context = {
         'form': form,
     }
-    return render(request, 'accounts/register.html')
+    return render(request, 'accounts/register.html', context)
 
 def login(request):
     return render(request, 'accounts/login.html')
