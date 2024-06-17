@@ -23,7 +23,7 @@ class RegistrationForm(forms.ModelForm):
             self.fields[field].widget.attrs['class'] = 'form-control'
             
     def clean(self):
-        cleaned_data = super(RegistrationForm,self).clean
+        cleaned_data = super(RegistrationForm,self).clean()
         password = cleaned_data.get('password')
         confirm_password = cleaned_data.get('confirm_password')
         
