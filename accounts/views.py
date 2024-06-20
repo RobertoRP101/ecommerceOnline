@@ -18,6 +18,12 @@ def register(request):
             user = Account.objects.create_user(first_name=first_name, last_name=last_name, email=email, username=username, password=password )
             user.phone_number = phone_number
             user.save()
+            
+            #USER ACTIVATION
+            current_site = get_current_site(request)
+            mail_subject = 'Please activate your account'
+            messages = render_to_string('accounts/account_verification_email.html')
+            
             messages.success(request, 'Registration successful.')
             return redirect('register')
     else:
