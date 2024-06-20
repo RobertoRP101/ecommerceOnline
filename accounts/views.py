@@ -41,4 +41,6 @@ def login(request):
     return render(request, 'accounts/login.html')
 
 def logout(request):
-    return
+    auth.logout(request)
+    messages.success(request, 'You are logged out.')
+    return redirect('login')
