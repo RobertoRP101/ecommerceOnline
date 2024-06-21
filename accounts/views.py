@@ -69,5 +69,5 @@ def logout(request):
     messages.success(request, 'You are logged out.')
     return redirect('login')
 
-def activate(request):
+def activate(request, uidb64):
     return HttpResponse('ok')
