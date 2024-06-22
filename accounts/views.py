@@ -41,7 +41,7 @@ def register(request):
             send_email = EmailMessage(email_subject, message, to=[to_email])
             send_email.send()
             messages.success(request, 'Thanks you for registering with us. We have sent you a verification email address. Please verify it.')
-            return redirect('register')
+            return redirect('accounts/login/?verification&email='+email)
     else:
         form = RegistrationForm()
     context = {
