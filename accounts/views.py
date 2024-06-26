@@ -65,6 +65,8 @@ def login(request):
                     product_variation = []
                     for item in cart_item:
                         variation = item.variations.all()
+                        product_variation.append(list(variation))
+                        
                     # for item in cart_item:
                     #     item.user = user
                     #     item.save()
