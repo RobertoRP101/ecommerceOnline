@@ -63,6 +63,8 @@ def login(request):
                 if is_cart_item_exists:
                     cart_item = CartItem.objects.filter(cart=cart)
                     product_variation = []
+                    for item in cart_item:
+                        variation = item.variations.all()
                     # for item in cart_item:
                     #     item.user = user
                     #     item.save()
