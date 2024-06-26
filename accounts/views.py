@@ -66,7 +66,14 @@ def login(request):
                     for item in cart_item:
                         variation = item.variations.all()
                         product_variation.append(list(variation))
-                        
+                    
+                    cart_item = CartItem.objects.filter(user=user)
+                    ex_var_list = []
+                    id = []
+                    for item in cart_item:
+                        existing_variation = item.variations.all()
+                        ex_var_list.append(list(existing_variation))
+                        id.append(item.id)
                     # for item in cart_item:
                     #     item.user = user
                     #     item.save()
