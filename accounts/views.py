@@ -100,6 +100,9 @@ def login(request):
             try:
                 query = requests.utils.urlparse(url).query
                 print('query ->', query)
+                # Next
+                param = dict(x.split('=') for x in query.split('&'))
+                print('param ->', param)
                 return redirect('dashboard')
             except:
                 pass
