@@ -1,5 +1,6 @@
 from django.db import models
 from accounts.models import Account 
+from carts.models import Product, Variation
 # Create your models here.
 
 class Payment(models.Model):
