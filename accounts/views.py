@@ -100,9 +100,10 @@ def login(request):
             try:
                 query = requests.utils.urlparse(url).query
                 print('query ->', query)
+                return redirect('dashboard')
             except:
                 pass
-            return redirect('dashboard')
+            
         else:
             messages.error(request, 'Invalid login credentials')
             return redirect('login')
