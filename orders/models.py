@@ -12,3 +12,14 @@ class Payment(models.Model):
     
     def __str__(self) -> str:
         return self.payment_id
+    
+    
+class Order(models.Model):
+    STATUS = (
+        ('New', 'New'),
+        ('Accepted', 'Accepted'),
+        ('Completed', 'Completed'),
+        ('Cancelled', 'Cancelled'),
+    )
+    
+    
