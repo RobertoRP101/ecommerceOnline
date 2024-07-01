@@ -10,3 +10,6 @@ def place_order(request):
     cart_count = cart_items.count()
     if cart_count <= 0:
         return redirect('store')
+    
+    if request.method == 'POST':
+        form = OrderForm(request.POST)
