@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 # from django.http import HttpResponse
 from carts.models import CartItem
 from .forms import OrderForm
+from .models import Order
 
 
 def place_order(request):
