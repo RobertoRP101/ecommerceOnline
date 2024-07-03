@@ -124,6 +124,13 @@
     // Render the PayPal button into #paypal-button-container
     paypal.Buttons({
 
+        style: {
+                color:  'blue',
+                shape:  'rect',
+                label:  'pay',
+                height: 40
+        },
+
         // Call your server to set up the transaction
         createOrder: function(data, actions) {
             return fetch('/demo/checkout/api/paypal/order/create/', {
