@@ -14,7 +14,7 @@ def payments(request):
         user = request.user,
         payment_id = body['transID'],
         payment_method = body['payment_method'],
-        amount_paid = order.total,
+        amount_paid = order.order_total,
         status = body['status'],
     )
     payment.save()
