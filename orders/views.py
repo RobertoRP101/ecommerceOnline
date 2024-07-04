@@ -4,6 +4,12 @@ from carts.models import CartItem
 from .forms import OrderForm
 from .models import Order
 import datetime
+import json
+
+def payments(request):
+    body = json.loads(request.body)
+    print(body)
+    return render(request, 'orders/payments.html')
 
 def place_order(request, total=0, quantity=0,):
     current_user = request.user
@@ -62,6 +68,3 @@ def place_order(request, total=0, quantity=0,):
     else:
         return redirect('checkout')
             
-            
-def payments(request):
-    return render(request, 'orders/payments.html')
