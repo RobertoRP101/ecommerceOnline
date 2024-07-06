@@ -4,6 +4,7 @@ from .forms import OrderForm
 from .models import Order, Payment, OrderProduct
 from store.models import Product
 from django.template.loader import render_to_string
+from django.core.mail import EmailMessage
 import datetime
 import json
 
@@ -51,7 +52,7 @@ def payments(request):
     
     email_subject = 'Thanks for your order!'
     message = render_to_string('orders/order_received_email.html', {
-        'user': user,
+        'user': request.user,
         'order': order,
     })
     to_email = request.user.email
@@ -116,3 +117,6 @@ def place_order(request, total=0, quantity=0):
     else:
         return redirect('checkout')
             
+            
+def order_complete(request):
+    return render(request, 'orders/order_complete.html')
