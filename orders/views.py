@@ -133,10 +133,13 @@ def order_complete(request):
         order = Order.objects.get(order_number=order_number, is_ordered=True)
         ordered_product = OrderProduct.objects.filter(order_id=order.id)
         
+        payment = Payment.objects.get(payment_id=transID)
+        
         context = {
             'order': order,
             'ordered_products': ordered_product,
             'order_number': order.order_number,
+            'transID': payment.payment_id,
         }
         return render (request, 'orders/order_complete.html', context)
     except (Payment.DoesNotExist, Order.DoesNotExist):
