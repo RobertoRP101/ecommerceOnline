@@ -140,6 +140,7 @@ def order_complete(request):
             'ordered_products': ordered_product,
             'order_number': order.order_number,
             'transID': payment.payment_id,
+            'payment': payment,
         }
         return render (request, 'orders/order_complete.html', context)
     except (Payment.DoesNotExist, Order.DoesNotExist):

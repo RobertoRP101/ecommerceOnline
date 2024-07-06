@@ -33,9 +33,10 @@
                             <div class="invoice-from">
                                 <ul class="list-unstyled text-right">
                                     <li><strong>Invoiced To</strong></li>
-                                    <li>Jakob Smith</li>
-                                    <li>Roupark 37</li>
-                                    <li>New York, NY, 2014</li>
+                                    <li>{{order.full_name}}</li>
+                                    <li>{{order.full_address}}</li>
+                                    <li>{{order.city}}, {{order.state}}</li>
+                                    <li>{{order.country}}</li>
                                     <li>USA</li>
                                 </ul>
                             </div>
@@ -49,7 +50,7 @@
                                         <li><strong>Order</strong> #{{order_number}}</li>
                                         <li><strong>Transaction ID</strong> {{transID}} </li>
                                         <li><strong>Order Date:</strong> {{ order.created_at }} </li>
-                                        <li><strong>Status:</strong> PAID</li>
+                                        <li><strong>Status:</strong> {{payment.status}} </li>
                                     </ul>
                                 </div>
                             </div>
