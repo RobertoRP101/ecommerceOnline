@@ -126,4 +126,19 @@ def place_order(request, total=0, quantity=0):
             
             
 def order_complete(request):
-    return render(request, 'orders/order_complete.html')
+    order_number = request.GET.get('order_number')
+    transID = request.GET.get('payment_id')
+    
+    try:
+        order = Order.objects.get(order_number=order_number, is_ordered=True)
+        ordered_product = OrderProduct.objects.filter(order_id=order.id)
+        
+        context = {
+            'order': order,
+            'ordered_products': ordered_product,
+            'order_number': order.order_number,
+        }
+        return render (request, 'orders/order_complete.html', context)
+    except (Payment.DoesNotExist, Order.DoesNotExist):
+        return redirect('home')
+    
