@@ -60,26 +60,17 @@
                                     <table class="table table-bordered">
                                         <thead>
                                             <tr>
-                                                <th class="per70 text-center">Description</th>
+                                                <th class="per70 text-center">Product</th>
                                                 <th class="per5 text-center">Qty</th>
                                                 <th class="per25 text-center">Total</th>
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            {% for item in ordered_products %}
                                             <tr>
-                                                <td>1024MB Cloud 2.0 Server - elisium.dynamic.com (12/04/2014 - 01/03/2015)</td>
-                                                <td class="text-center">1</td>
-                                                <td class="text-center">$25.00 USD</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Logo design</td>
-                                                <td class="text-center">1</td>
-                                                <td class="text-center">$200.00 USD</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Backup - 1024MB Cloud 2.0 Server - elisium.dynamic.com</td>
-                                                <td class="text-center">12</td>
-                                                <td class="text-center">$12.00 USD</td>
+                                                <td>{{item.product.product_name}}</td>
+                                                <td class="text-center">{{item.quantity}}</td>
+                                                <td class="text-center">${{item.product_price}}</td>
                                             </tr>
                                         </tbody>
                                         <tfoot>
