@@ -133,6 +133,10 @@ def order_complete(request):
         order = Order.objects.get(order_number=order_number, is_ordered=True)
         ordered_product = OrderProduct.objects.filter(order_id=order.id)
         
+        subtotal = 0
+        for i in ordered_product:
+            subtotal +=i.product_price * i.quantity
+        
         payment = Payment.objects.get(payment_id=transID)
         
         context = {
@@ -141,6 +145,7 @@ def order_complete(request):
             'order_number': order.order_number,
             'transID': payment.payment_id,
             'payment': payment,
+            'subtotal': subtotal,
         }
         return render (request, 'orders/order_complete.html', context)
     except (Payment.DoesNotExist, Order.DoesNotExist):
