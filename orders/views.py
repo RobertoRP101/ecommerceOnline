@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from carts.models import CartItem
 from .forms import OrderForm
+from django.http import JsonResponse
 from .models import Order, Payment, OrderProduct
 from store.models import Product
 from django.template.loader import render_to_string
@@ -59,7 +60,13 @@ def payments(request):
     send_email = EmailMessage(email_subject, message, to=[to_email])
     send_email.send()
     
-    return render(request, 'orders/payments.html')
+    
+    data = {
+        'order_number': order.order_number,
+        'transID': payment.payment_id,
+    }
+    
+    return JsonResponse(data)
 
 def place_order(request, total=0, quantity=0):
     current_user = request.user
