@@ -1,8 +1,8 @@
 from django.shortcuts import render, redirect
-# from django.http import HttpResponse
 from carts.models import CartItem
 from .forms import OrderForm
 from .models import Order, Payment, OrderProduct
+from store.models import Product
 import datetime
 import json
 
@@ -40,6 +40,10 @@ def payments(request):
         orderproduct = OrderProduct.objects.get(id=orderproduct.id)
         orderproduct.variations.set(product_variation)
         orderproduct.save()
+        
+    product = Product.objects.get(id=item.product_id)
+    product.stock -= item.quantity
+    product.save()
     
     return render(request, 'orders/payments.html')
 
