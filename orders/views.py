@@ -3,6 +3,7 @@ from carts.models import CartItem
 from .forms import OrderForm
 from .models import Order, Payment, OrderProduct
 from store.models import Product
+from django.template.loader import render_to_string
 import datetime
 import json
 
@@ -46,6 +47,16 @@ def payments(request):
         product.save()
         
     CartItem.objects.filter(user=request.user).delete()
+    
+    
+    email_subject = 'Thanks for your order!'
+    message = render_to_string('orders/order_received_email.html', {
+        'user': user,
+        'order': order,
+    })
+    to_email = request.user.email
+    send_email = EmailMessage(email_subject, message, to=[to_email])
+    send_email.send()
     
     return render(request, 'orders/payments.html')
 
