@@ -20,3 +20,13 @@
     padding: 0.3rem .2rem;
     cursor: pointer;
  }
+
+ .rate .half:before {
+    content: "\f089";
+    position: absolute;
+    padding-right: 0;
+ }
+
+ input:checked ~ label, label:hover ~ label {
+    color: #ffb503;
+ }
