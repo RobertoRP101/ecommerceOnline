@@ -44,3 +44,6 @@ class Variation(models.Model):
         
         def __str__(self) -> str:
              return self.variation_value
+         
+class ReviewRating(models.Model):
+    pass
