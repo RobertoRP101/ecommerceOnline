@@ -79,7 +79,7 @@
 
         </header>
 
-        <form action="" method="POST">
+        <form action="{% url 'submit_review' single_product.id %}" method="POST">
           {% csrf_token %}
           <h5>Write your review</h5>
           <div>
