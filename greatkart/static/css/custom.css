@@ -14,7 +14,7 @@
  .rate > label:before {
     display: inline-block;
     font-size: 1.1rem;
-    font-family: FontAweson;
+    font-family: FontAwesome;
     content: "\f005";
     margin: 0;
     padding: 0.3rem .2rem;
