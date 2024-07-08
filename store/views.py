@@ -69,5 +69,16 @@ def submit_review(request, product_id):
             messages.success(request, 'Thank you! Your review has been updated.')
             return redirect(url)
         except ReviewRating.DoesNotExist:
-            pass
-            
+            form = ReviewForm(request.POST)
+            if form.is_valid():
+                data = ReviewRating()
+                data.subject = form.cleaned_data['subject']
+                data.rating = form.cleaned_data['rating']
+                data.review = form.cleaned_data['review']
+                data.review = form.cleaned_data['review']
+                data.ip = request.META.get('REMOTE_ADDR')
+                data.product_id = product_id
+                data.user_id = request.user.id
+                data.save()
+                messages.success(request, 'Thank you! Your review has been submitted.')
+                return redirect(url)
