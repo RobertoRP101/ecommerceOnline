@@ -8,6 +8,7 @@ from django.http import HttpResponse
 from django.db.models import Q
 from .forms import ReviewForm
 from django.contrib import messages
+from orders.models import OrderProduct
 # Create your views here.
 
 def store(request, category_slug=None):
@@ -40,6 +41,10 @@ def product_detail(request, category_slug, product_slug):
         in_cart = CartItem.objects.filter(cart__cart_id=_cart_id(request), product=single_product).exists()
     except Exception as e:
         raise e
+    try:
+        pass
+    except:
+        pass
     context = {
         'single_product': single_product,
         'in_cart': in_cart,
