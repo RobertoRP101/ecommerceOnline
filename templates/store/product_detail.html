@@ -74,10 +74,7 @@
     <div class="row">
       <div class="col-md-9">
 
-        <header class="section-heading">
-          <h3>Customer Reviews </h3>
 
-        </header>
 
         <form action="{% url 'submit_review' single_product.id %}" method="POST">
           {% csrf_token %}
@@ -110,6 +107,10 @@
         </form>
         <br>
 
+        <header class="section-heading">
+          <h3>Customer Reviews </h3>
+
+        </header>
 
         <article class="box mb-3">
           <div class="icontext w-100">
