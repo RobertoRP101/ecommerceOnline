@@ -22,7 +22,7 @@ class Product(models.Model):
         return self.product_name
     
     def averageReview(self):
-        pass
+        reviews = ReviewRating.objects.filter(product=self, status=True).aggregate(average=Avg('rating'))
    
 class VariationManager(models.Manager):
     def color(self):
