@@ -6,6 +6,7 @@ from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 from carts.views import _cart_id
 from carts.models import Cart, CartItem
+from orders.models import Order
 import requests
 
 # Verification email
@@ -136,6 +137,7 @@ def activate(request, uidb64, token):
 @login_required(login_url='login')    
 def dashboard(request):
     orders = Order.objects.order_by('-created_at').filter(user_id=request.user.id, is_ordered=True)
+    orders_count = orders.count()
     return render (request, 'accounts/dashboard.html')
 
 def forgotPassword(request):
