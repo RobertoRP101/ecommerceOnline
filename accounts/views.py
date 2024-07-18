@@ -199,3 +199,8 @@ def resetPassword(request):
             return redirect('resetPassword')
     else:
         return render(request, 'accounts/resetPassword.html')
+    
+    
+    
+def my_orders(request):
+    pass
