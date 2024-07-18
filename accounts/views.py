@@ -203,4 +203,4 @@ def resetPassword(request):
     
     
 def my_orders(request):
-    pass
+     return render(request, 'accounts/my_orders.html')
