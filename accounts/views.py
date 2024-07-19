@@ -203,4 +203,5 @@ def resetPassword(request):
     
     
 def my_orders(request):
-     return render(request, 'accounts/my_orders.html')
+    orders = Order.objects.filter(user=request.user, is_ordered=True)
+    return render(request, 'accounts/my_orders.html')
