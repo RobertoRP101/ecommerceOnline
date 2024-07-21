@@ -20,4 +20,4 @@ class UserProfileAdmin(admin.ModelAdmin):
     list_display = ('thumbnail', 'user', 'city', 'state', 'country')
 
 admin.site.register(Account, AccountAdmin)
-admin.site.register(UserProfileAdmin, AccountAdmin)
+admin.site.register(UserProfileAdmin, UserProfile)
