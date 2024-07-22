@@ -210,4 +210,4 @@ def my_orders(request):
     return render(request, 'accounts/my_orders.html', context)
 
 def edit_profile(request):
-    pass
+    return render(request, 'accounts/edit_profile.html')
