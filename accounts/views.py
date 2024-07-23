@@ -211,4 +211,7 @@ def my_orders(request):
 
 def edit_profile(request):
     userprofile = get_object_or_404(UserProfile, user=request.user)
+    if request.method == 'POST':
+        user_form = UserForm(request.POST, instance=request.user)
+        profile_form = UserProfileForm(request.POST, request.FILES, instance=userprofile)
     return render(request, 'accounts/edit_profile.html')
