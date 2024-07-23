@@ -1,5 +1,5 @@
-from django.shortcuts import render, redirect
-from .forms import RegistrationForm, UserForm, UserProfileForm
+from django.shortcuts import render, redirect, get_object_or_404
+from .forms import RegistrationForm, UserForm, UserProfileForm, UserProfile
 from .models import Account
 from django.contrib import messages, auth
 from django.contrib.auth.decorators import login_required
@@ -210,4 +210,5 @@ def my_orders(request):
     return render(request, 'accounts/my_orders.html', context)
 
 def edit_profile(request):
+    userprofile = get_object_or_404(UserProfile, user=request.user)
     return render(request, 'accounts/edit_profile.html')
