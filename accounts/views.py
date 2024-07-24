@@ -220,5 +220,6 @@ def edit_profile(request):
             messages.success(request, 'Your profile has been updated.')
             return redirect('edit_profile')
     else:
-        user_form = UserForm()
+        user_form = UserForm(instance=request.user)
+        profile_form = UserProfileForm(instance=userprofile)
     return render(request, 'accounts/edit_profile.html')
