@@ -36,6 +36,7 @@ def register(request):
             profile = UserProfile()
             profile.user_id = user.id
             profile.profile_picture = 'default/default-user.png'
+            profile.save()
             
             #USER ACTIVATION
             current_site = get_current_site(request)
