@@ -237,4 +237,4 @@ def edit_profile(request):
 
 
 def change_password(request):
-    pass
+    return render(request, 'accounts/change_password.html')
