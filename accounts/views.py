@@ -234,3 +234,7 @@ def edit_profile(request):
         'userprofile': userprofile,
     }
     return render(request, 'accounts/edit_profile.html', context)
+
+
+def change_password(request):
+    pass
