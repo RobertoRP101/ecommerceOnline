@@ -215,6 +215,7 @@ def my_orders(request):
     }
     return render(request, 'accounts/my_orders.html', context)
 
+@login_required(login_url='/login/')
 def edit_profile(request):
     userprofile = get_object_or_404(UserProfile, user=request.user)
     if request.method == 'POST':
