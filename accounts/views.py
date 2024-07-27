@@ -254,5 +254,7 @@ def change_password(request):
             else:
                 messages.error(request, 'Please enter valid current password')
                 return redirect('change_password')
-            
+        else:
+            messages.error(request, 'Password does not match!')
+              
     return render(request, 'accounts/change_password.html')
