@@ -241,7 +241,9 @@ def change_password(request):
         current_password = request.POST['current_password']
         new_password = request.POST['new_password']
         confirm_password = request.POST['confirm_password']
+        
         user = Account.objects.get(username__iexact=request.user.username)
+        
         if new_password == confirm_password:
             success = user.check_password(current_password)
             if success:
@@ -249,4 +251,6 @@ def change_password(request):
                 user.save()
                 messages.success(request, 'Password updated successfully')
                 return redirect('change_password')
+            else:
+                messages.error(request, 'Please enter valid current password')
     return render(request, 'accounts/change_password.html')
