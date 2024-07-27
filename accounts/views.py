@@ -253,4 +253,6 @@ def change_password(request):
                 return redirect('change_password')
             else:
                 messages.error(request, 'Please enter valid current password')
+                return redirect('change_password')
+            
     return render(request, 'accounts/change_password.html')
