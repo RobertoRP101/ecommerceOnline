@@ -260,3 +260,7 @@ def change_password(request):
             return redirect('change_password')
         
     return render(request, 'accounts/change_password.html')
+
+
+def order_detail(request, order_id):
+    pass
