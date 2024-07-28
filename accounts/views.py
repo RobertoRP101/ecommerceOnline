@@ -261,6 +261,6 @@ def change_password(request):
         
     return render(request, 'accounts/change_password.html')
 
-
+@login_required(login_url='login')
 def order_detail(request, order_id):
-    pass
+    return render (request, 'accounts/order_detail.html')
