@@ -6,8 +6,9 @@ from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 from carts.views import _cart_id
 from carts.models import Cart, CartItem
-from orders.models import Order
+from orders.models import Order, OrderProduct
 import requests
+
 
 # Verification email
 from django.contrib.sites.shortcuts import get_current_site
@@ -263,4 +264,10 @@ def change_password(request):
 
 @login_required(login_url='login')
 def order_detail(request, order_id):
-    return render (request, 'accounts/order_detail.html')
+    order_detail = OrderProduct.objects.filter(order__order_number=order_id)
+    order = Order.objects.get(order_number=order_id)
+    context = {
+        'order_detail': order_detail,
+        'order': order,
+    }
+    return render (request, 'accounts/order_detail.html', context)
