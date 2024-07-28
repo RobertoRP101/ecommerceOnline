@@ -207,7 +207,7 @@ def resetPassword(request):
         return render(request, 'accounts/resetPassword.html')
     
     
-@login_required(login_url='/login/')
+@login_required(login_url='login')
 def my_orders(request):
     orders = Order.objects.filter(user=request.user, is_ordered=True).order_by('-created_at')
     context = {
@@ -215,7 +215,7 @@ def my_orders(request):
     }
     return render(request, 'accounts/my_orders.html', context)
 
-@login_required(login_url='/login/')
+@login_required(login_url='login')
 def edit_profile(request):
     userprofile = get_object_or_404(UserProfile, user=request.user)
     if request.method == 'POST':
@@ -236,7 +236,7 @@ def edit_profile(request):
     }
     return render(request, 'accounts/edit_profile.html', context)
 
-@login_required(login_url='/login/')
+@login_required(login_url='login')
 def change_password(request):
     if request.method == 'POST':
         current_password = request.POST['current_password']
