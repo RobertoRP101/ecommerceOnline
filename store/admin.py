@@ -1,6 +1,10 @@
 from django.contrib import admin
 from .models import Product, Variation, ReviewRating, ProductGallery
-# Register your models here.
+
+
+class ProductGalleryInline(admin.TabularInline):
+    model = ProductGallery
+    extra = 1
 
 
 class ProductAdmin(admin.ModelAdmin):
