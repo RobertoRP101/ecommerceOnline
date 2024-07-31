@@ -2,7 +2,7 @@ from django.shortcuts import get_object_or_404, render, redirect
 from carts.models import CartItem
 from carts.views import _cart_id
 from category.models import Category
-from .models import Product, ReviewRating
+from .models import Product, ReviewRating, ProductGallery
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 from django.http import HttpResponse
 from django.db.models import Q
