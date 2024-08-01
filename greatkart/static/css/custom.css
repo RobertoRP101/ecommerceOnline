@@ -40,3 +40,10 @@
    color: #ffb503 !important;
 
  }
+
+
+ ul.thumb{
+   margin: 0 auto;
+   padding: 0;
+   float: left;
+ }
