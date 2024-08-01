@@ -60,6 +60,7 @@ def product_detail(request, category_slug, product_slug):
         'in_cart': in_cart,
         'orderproduct': orderproduct,
         'reviews': reviews,
+        'product_gallery': product_gallery,
     }
     return render(request, 'store/product_detail.html', context)
 
