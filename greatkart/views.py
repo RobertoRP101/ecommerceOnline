@@ -3,6 +3,7 @@ from store.models import Product
 
 def home(request):
     products = Product.objects.all().filter(is_available=True)
+    reviews = ReviewRating.objects.filter(product_id=single_product.id, status=True)
     context = {
         'products': products,
     }
